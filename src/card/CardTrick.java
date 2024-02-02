@@ -37,16 +37,15 @@ public class CardTrick {
         
         
         //insert code to ask the user for Card value and suit, create their card
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a card value (1-13): ");
-        int cValue = scanner.nextInt();
-        System.out.print("Enter a suit (0,3 where 0=Hearts, 1=Diamonds, 2=Clubs, 3=Spades): ");
-        int cSuit = scanner.nextInt();
+        // add one luckcard hard code 2,clubs
+        Card luckyCard = new Card();
+        luckyCard.setValue(9);
+        luckyCard.setSuit("Clubs");
         
         // and search magicHand here
         boolean match = false;
         for(int i=0; i<magicHand.length; i++){
-            if (magicHand[i].getValue() == cValue && magicHand[i].getSuit().equals(cSuit)) {
+            if (magicHand[i].getValue() == luckyCard.getValue() && magicHand[i].getSuit().equals(luckyCard.getSuit())) {
                 match =true;
                 break;
             }   
@@ -58,10 +57,7 @@ public class CardTrick {
         }else{
             System.out.println("Sorry, your card is not in the magic hand");
         }
-        // add one luckcard hard code 2,clubs
-        Card luckyCard = new Card();
-        luckyCard.setValue(9);
-        luckyCard.setSuit("Clubs");
+
     }
 }
         
